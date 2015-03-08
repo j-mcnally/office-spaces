@@ -1,0 +1,21 @@
+
+%h1.text-center
+  = image_tag image_path("space.png"), style: "width: 60%; margin: auto"
+.controller{"ng-controller" => "RoomsController"}
+  .container.padding-top
+    .well{"ng-repeat" => "room in rooms"}
+      .row
+        .col-xs-8
+          %a{href: "/rooms/{{room.id}}"}
+            {{room.name}}
+        .col-xs-4.text-right
+          %div{"ng-hide" => "room.users.length <= 0"}
+            %a.btn.btn-danger.btn-fab.btn-raised{:href => "javascript:void(0)"}
+          %div{"ng-hide" => "room.users.length > 0"}
+            %a.btn.btn-success.btn-fab.btn-raised{:href => "javascript:void(0)"}
+    .padding-top
+      .row
+        .col-xs-12
+          .pull-right
+            %a.btn.btn-info.btn-fab.btn-raised.btn-icon{:href => "/tags/new"}
+              %i.glyphicon.glyphicon-plus

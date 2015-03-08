@@ -1,0 +1,21 @@
+.controller{"ng-controller" => "RoomController"}
+  .container
+    .row.padded
+      .col-xs-8
+        %h1
+          {{room.name}}
+      .col-xs-4.text-right
+        %div{"ng-hide" => "!occupied"}
+          %a.btn.btn-danger.btn-fab.btn-raised{:href => "javascript:void(0)"}
+        %div{"ng-hide" => "occupied"}
+          %a.btn.btn-success.btn-fab.btn-raised{:href => "javascript:void(0)"}
+    .clear-both
+    .well
+      %div{"ng-repeat" => "user in room.users"}
+        %b
+          {{user.name}}
+        = " - "
+        {{user.email}}
+
+:javascript
+  window.room_id = "#{params[:id]}"

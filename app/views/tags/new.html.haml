@@ -1,0 +1,22 @@
+.controller{"ng-controller" => "TagController"}
+  .container.padding-top
+    .well
+      %form.form-horizontal{name: "tagForm"}
+        %fieldset
+          %legend New Tag
+          .form-group
+            %label.col-lg-2.control-label{:for => "email"} Email
+            .col-lg-10
+              %input#email.form-control{:name => "email", :placeholder => "Email", :type => "email", "ng-required" => "true", "ng-model" => "tag.email"}/
+          .form-group
+            %label.col-lg-2.control-label{:for => "name"} Name
+            .col-lg-10
+              %input#user_name.form-control{:name => "user_name", :placeholder => "Name", :type => "text", "ng-required" => "true", "ng-model" => "tag.user_name"}
+          .form-group
+            %label.col-lg-2.control-label{:for => "factory_code"} Factory Code
+            .col-lg-10
+              %input#factory_code.form-control{:name => "factory_code", :placeholder => "XXXX-XXXX", :type => "text", "ng-required" => "true", "ng-model" => "tag.identifier"}
+              
+
+        %button.btn-primary{type: "button", "ng-click" => "save(tag, tagForm)"}
+          Save

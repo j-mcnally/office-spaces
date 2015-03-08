@@ -1,0 +1,7 @@
+---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:concurrency:  50
+:queues:
+  - [presence, 1]
+  - [update, 49]
